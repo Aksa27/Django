@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
-def base(request):
+def home(request):
     return render(request,'base.html')
 def signup(request):
     if request.method=='POST':
@@ -22,3 +22,22 @@ def signup(request):
         else:
             print('wrong password')
     return render(request,'signup.html')
+
+def user_login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password1=request.POST.get('pass1')
+        user=authenticate(request,username=username,password=password1)
+        if user is not None:
+            login(request,user)
+            return redirect(home)
+        else:
+            messages.info(request,'user not exist')
+            print('user not exist')
+            return redirect(user_login)
+    return render(request,'login.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect(user_login)
+
