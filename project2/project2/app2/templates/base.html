@@ -19,7 +19,13 @@
    
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">logout</a>
+          <a class="nav-link" href="{% url 'add' %}">ADD_BOOK</a>
+        </li>
+        li class="nav-item">
+          <a class="nav-link" href="{% url 'book_list' %}">book_list</a>
+        </li>
+        li class="nav-item">
+          <a class="nav-link" href="{% url 'add' %}">ADD_BOOK</a>
         </li>
         {% else %}
         <li class="nav-item">

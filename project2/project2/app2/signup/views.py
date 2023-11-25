@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+
+
+from signup.models import*
+from signup.form import*
 # Create your views here.
 def home(request):
     return render(request,'base.html')
@@ -40,4 +44,15 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect(user_login)
+def add_book(request):
+    if request.method=='POST':
+        d=bookform(request.POST)
+        if d.is_valid():
+            d.save()
+            return redirect(view_book)
+    return render(request,'add_book.html')
+
+def view_book(request):
+    b=Book.objects.all()
+    return render(request,'list.html',{'book':b})    
 
