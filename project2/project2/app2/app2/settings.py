@@ -29,7 +29,12 @@ SECRET_KEY = 'django-insecure-ru8tx#i&korvo_jr0b_d@s@$%qxx9u4(y#xvnitl8w+j2fr89t
 DEBUG = True
 
 ALLOWED_HOSTS = []
+EMAIL_BACKEND ="django.core.mail.backends.console.EmailBackend"
 
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL ="home"
+LOGOUT_REDIRECT_URL ="login"
+LOGOUT_URL ='logout'
 
 # Application definition
 

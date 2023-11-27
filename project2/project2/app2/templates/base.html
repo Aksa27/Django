@@ -19,13 +19,17 @@
    
         {% if user.is_authenticated %}
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'password_change' %}">change password</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'add' %}">ADD_BOOK</a>
         </li>
-        li class="nav-item">
-          <a class="nav-link" href="{% url 'book_list' %}">book_list</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'list' %}">Book_list</a>
         </li>
-        li class="nav-item">
-          <a class="nav-link" href="{% url 'add' %}">ADD_BOOK</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
