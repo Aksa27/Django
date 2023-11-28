@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block body_block %}
+    <div class="container">
+        <h2 style="text-align:center;"><b>ADD BOOK DETAILS</b></h2><br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <br>
+            <input type="submit" class="btn btn-danger">
+        </form>
+
+    </div>
+    {% endblock %}
+
+</body>
+</html>

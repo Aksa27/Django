@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body_block %}
+<div class="container-fluid">
+    <h2 style="text-align: center;"><b>BOOK DETAILS</b></h2>
+ <table>
+    <tr>
+        <th>COVER</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>PDF</th>
+
+    </tr>
+    {% for i in b %}
+    <tr><td><img src="{{i.cover.url}}" width="100px" height="100px"></td></tr>
+   <td>{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td><a href="{{i.pdf.url}}">Download</a></td>
+    {% endfor %}
+
+</table>   
+{% endblock %}
+
+</div>
